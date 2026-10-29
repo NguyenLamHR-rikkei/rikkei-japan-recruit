@@ -1,0 +1,67 @@
+/* Rikkei Japan Career – edit colors here */
+:root{--r:#E3292E;--rd:#B81D22;--ink:#222426;--mut:#62666a;--bg:#F4F4F3;--ln:#DEDFDD;--w:1120px}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.8 "Noto Sans JP","Hiragino Sans","Yu Gothic","Segoe UI",Roboto,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit}
+h1,h2,h3{line-height:1.35;margin:0 0 .5em;letter-spacing:.01em}
+h1{font-size:clamp(28px,4.6vw,48px);font-weight:700}h2{font-size:clamp(22px,3vw,30px)}h3{font-size:18px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 20px}
+.sec{padding:72px 0}.alt{background:var(--bg)}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;padding:8px;z-index:99}
+:focus-visible{outline:3px solid var(--r);outline-offset:2px}
+.sample{background:var(--ink);color:#fff;font-size:12px;text-align:center;padding:4px 8px}
+#hd{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--ln);z-index:20}
+.bar{display:flex;align-items:center;gap:20px;height:64px}
+.brand{font-weight:800;text-decoration:none;font-size:18px;display:flex;align-items:center;gap:8px}
+.brand i{width:14px;height:22px;background:var(--r);transform:skewX(-14deg)}
+.brand small{font-weight:500;color:var(--mut);font-size:13px}
+nav{display:flex;gap:4px;margin-left:auto}
+nav a{text-decoration:none;padding:6px 10px;font-size:14px;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current]{border-color:var(--r)}
+.lang button{border:1px solid var(--ln);background:#fff;padding:4px 10px;font:inherit;font-size:13px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.mb{display:none;background:none;border:1px solid var(--ln);padding:6px 10px;font:inherit;cursor:pointer}
+.btn{display:inline-block;background:var(--r);color:#fff;border:2px solid var(--r);padding:10px 22px;text-decoration:none;font:inherit;font-weight:600;cursor:pointer;border-radius:2px}
+.btn:hover{background:var(--rd);border-color:var(--rd)}
+.btn.ghost{background:#fff;color:var(--ink);border-color:var(--ink)}.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.sm{padding:6px 14px;font-size:14px}
+.hero{padding:64px 0;background:linear-gradient(100deg,#fff 60%,var(--bg) 60%)}
+.hg{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.eyebrow{color:var(--r);font-weight:700;font-size:13px;margin:0 0 12px}
+.lead{color:var(--mut);max-width:34em}
+.ph{background:repeating-linear-gradient(135deg,#e9e9e7 0 12px,#f1f1ef 12px 24px);display:flex;align-items:flex-end;padding:12px;color:var(--mut);font-size:12px;min-height:180px;position:relative;overflow:hidden}
+.ph::before{content:"";position:absolute;right:-30px;top:0;width:90px;height:100%;background:var(--r);transform:skewX(-14deg);opacity:.9}
+.hp{min-height:380px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--ink)}
+.facts div{padding:18px 16px 0 0}.facts b{display:block;font-size:34px;color:var(--r);line-height:1.2}
+.note{font-size:13px;color:var(--mut)}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.job{display:block;text-decoration:none;border:1px solid var(--ln);background:#fff;padding:20px;border-top:3px solid var(--ln)}
+.job:hover{border-top-color:var(--r)}
+.job h3{margin:8px 0}.job p{color:var(--mut);font-size:14px;margin:0 0 10px}
+.tag{font-size:12px;color:var(--r);font-weight:700}
+.meta{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--mut)}
+.row{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px}
+.why div{border-top:1px solid var(--ln);padding:20px 0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.three .ph{min-height:140px;margin-bottom:10px}
+.filters{display:grid;grid-template-columns:2fr repeat(4,1fr) auto;gap:12px;align-items:end;margin:24px 0}
+.filters label{font-size:13px;color:var(--mut);display:block}
+.filters input,.filters select{width:100%;padding:9px;border:1px solid #b9bbb8;font:inherit;background:#fff;border-radius:2px}
+.empty{padding:48px;text-align:center;border:1px dashed var(--ln);grid-column:1/-1}
+.dg{display:grid;grid-template-columns:1fr 300px;gap:48px}
+.dg ul{padding-left:1.2em}
+.side{border:1px solid var(--ln);padding:20px;align-self:start;position:sticky;top:84px}
+.side dt{font-size:12px;color:var(--mut)}.side dd{margin:0 0 10px;font-weight:600}
+.crumb{font-size:14px;margin-bottom:16px;display:inline-block}
+.fin{background:var(--ink);color:#fff;text-align:center;padding:64px 20px}
+#ft{background:var(--bg);padding:40px 0;font-size:14px;color:var(--mut)}
+#ft .fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+#ft a{display:block}
+@media(max-width:860px){
+.mb{display:block;margin-left:auto}nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:10px 20px;border-bottom:1px solid var(--ln)}
+#hd.open nav{display:flex}.bar{gap:10px}
+.hero{background:#fff}.hg,.dg,.why,.three,#ft .fg{grid-template-columns:1fr}.hp{min-height:220px}
+.facts{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/-1}.side{position:static}}
+@media(prefers-reduced-motion:no-preference){.job{transition:border-color .2s}}
