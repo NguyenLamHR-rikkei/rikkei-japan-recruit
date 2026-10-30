@@ -5,7 +5,7 @@
    targetNationalities (who may apply) is independent of requiredLanguages (language skill). */
 /* Default Apply link (Rikkei Japan recruitment Facebook page – confirm before publishing).
    A job's own applicationUrl overrides it. */
-window.RJ_APPLY_URL = "https://www.facebook.com/rikkei.japan.hr";
+window.RJ_APPLY_URL = "https://m.me/rikkei.japan.hr";
 window.RJ_JOBS = [
 {id:"jp-se-01",category:"se",department:"Delivery",location:"Tokyo",employmentType:"fulltime",salaryMin:null,salaryMax:null,salaryUnit:"JPY/year",experienceLevel:"mid",
  requiredLanguages:[{lang:"Japanese",level:"Business"}],targetNationalities:["Japanese"],displayLanguages:["ja"],featured:true,status:"open",posted:"2026-10-20",applicationUrl:"",
