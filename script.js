@@ -63,7 +63,7 @@ var loc=function(j){return T.L[j.location]||j.location};
 var sal=function(j){return j.salaryMin?(j.salaryMin+'–'+j.salaryMax+' '+j.salaryUnit):''};
 function card(j){var c=j.content[lang];
  return '<a class="job" href="#/jobs/'+j.id+'"><span class="tag">'+T.cats[j.category]+'</span><h3>'+c.title+'</h3><p>'+c.description+'</p><ul class="meta"><li>'+loc(j)+'</li><li>'+T.ty[j.employmentType]+'</li><li>'+T.ex[j.experienceLevel]+'</li>'+(sal(j)?'<li>'+sal(j)+'</li>':'')+'</ul></a>'}
-var ph=function(t,h,src){return '<div class="ph'+(h?' '+h:'')+'" role="img" aria-label="'+T.ph+'">'+(src?'<img src="assets/'+src+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<span>'+(t||T.phS)+'</span></div>'};
+var ph=function(t,h,src){return '<div class="ph'+(h?' '+h:'')+'" role="img" aria-label="'+T.ph+'">'+(src?'<img src="Assets/'+src+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<span>'+(t||T.phS)+'</span></div>'};
 var list=function(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'};
 
 /* ---------- views ---------- */
@@ -108,7 +108,7 @@ function news(){return '<div class="wrap sec"><h1>'+T.newsT+'</h1>'+newsList()+'
 /* ---------- shell ---------- */
 function shell(route){
  var h=['/','/jobs','/about','/culture','/news'];
- $('#hd').innerHTML='<div class="sample">'+T.sample+'</div><div class="wrap bar"><a class="brand" href="#/" aria-label="Rikkei Japan Career"><img class="logo" src="assets/logo.png" alt="Rikkei" onerror="rjLogo(this)"><small>Japan Career</small></a>'
+ $('#hd').innerHTML='<div class="sample">'+T.sample+'</div><div class="wrap bar"><a class="brand" href="#/" aria-label="Rikkei Japan Career"><img class="logo" src="Assets/logo.png" alt="Rikkei" onerror="rjLogo(this)"><small>Japan Career</small></a>'
  +'<button class="mb" type="button" data-menu aria-expanded="false">'+T.menu+'</button><nav aria-label="Main">'+T.nav.map(function(n,i){return '<a href="#'+h[i]+'"'+(route===h[i]?' aria-current="page"':'')+'>'+n+'</a>'}).join('')+'</nav>'
  +'<div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ja" aria-pressed="'+(lang==='ja')+'">日本語</button><button type="button" data-lang="vi" aria-pressed="'+(lang==='vi')+'">Tiếng Việt</button></div><a class="btn sm" href="#/jobs">'+T.cta+'</a></div>';
  $('#ft').innerHTML='<div class="wrap fg"><div><b>Rikkei Japan Career</b><p>'+T.foot+'</p><a href="https://rikkeisoft.com/ja/" target="_blank" rel="noopener">rikkeisoft.com/ja</a></div><div>'+T.nav.map(function(n,i){return '<a href="#'+h[i]+'">'+n+'</a>'}).join('')+'</div><div><b>'+T.contact+'</b><p>'+T.contactP+'</p><span>'+T.priv+'</span></div></div><div class="wrap note" style="margin-top:24px">'+T.copy+'</div>';
