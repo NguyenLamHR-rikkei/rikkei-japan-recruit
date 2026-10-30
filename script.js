@@ -36,7 +36,7 @@ vi:{nav:['Trang chủ','Việc làm','Về Rikkei','Sự nghiệp & Văn hóa','
  cultT:'Sự nghiệp & Văn hóa',cultP:'Phỏng vấn nhân viên, đào tạo và sự kiện sẽ được đăng sau khi được duyệt.',
  cult:[['Phỏng vấn nhân viên','Sẽ đăng chia sẻ của nhân viên đang làm việc.'],['Đào tạo & học tập','Sẽ giới thiệu các hoạt động hỗ trợ phát triển.'],['Sự kiện & hoạt động nhóm','Sẽ giới thiệu các hoạt động giao lưu.'],['Môi trường làm việc','Sẽ đăng ảnh văn phòng và nơi làm việc.']],
  phS:'[Chưa có ảnh]',aboutT:'Về Rikkei',aboutP:['Rikkei Japan là chi nhánh tại Nhật Bản của tập đoàn Rikkeisoft, cung cấp dịch vụ CNTT cho khách hàng Nhật.','Rikkeisoft thành lập năm 2012 và hoạt động tại Việt Nam, Nhật Bản và Hoa Kỳ.'],
- vals:['Tin cậy','Hợp tác','Phát triển chuyên môn','Làm việc nhóm quốc tế'],valT:'Giá trị chúng tôi coi trọng',corp:'Đến website chính thức của Rikkeisoft',
+ vals:['Tin cậy','Hợp tác','Phát triển chuyên môn','Làm việc nhóm quốc tế'],valT:'Giá trị chúng tôi coi trọng',corp:'Đến website chính thức của Rikkeisoft (tiếng Nhật)',
  newsT:'Tin tức & Sự kiện',cats:{se:'Phát triển phần mềm',brse:'Kỹ sư cầu nối (BrSE)',pm:'Quản lý dự án',ai:'AI / Dữ liệu',sap:'SAP / Salesforce',cloud:'Cloud / Hạ tầng',sales:'Kinh doanh CNTT',corp:'Hành chính / Khác'},
  ncat:{event:'Sự kiện',recruit:'Tuyển dụng',company:'Công ty'},finT:'Tìm vị trí phù hợp với bạn',finP:'Xem danh sách việc làm để chọn vị trí hợp với kinh nghiệm của bạn.',
  search:'Từ khóa',cat:'Nhóm công việc',loc:'Địa điểm',exp:'Kinh nghiệm',type:'Hình thức',sort:'Sắp xếp',sNew:'Mới nhất',sRel:'Liên quan nhất',any:'Tất cả',clear:'Xóa bộ lọc',
@@ -63,17 +63,17 @@ var loc=function(j){return T.L[j.location]||j.location};
 var sal=function(j){return j.salaryMin?(j.salaryMin+'–'+j.salaryMax+' '+j.salaryUnit):''};
 function card(j){var c=j.content[lang];
  return '<a class="job" href="#/jobs/'+j.id+'"><span class="tag">'+T.cats[j.category]+'</span><h3>'+c.title+'</h3><p>'+c.description+'</p><ul class="meta"><li>'+loc(j)+'</li><li>'+T.ty[j.employmentType]+'</li><li>'+T.ex[j.experienceLevel]+'</li>'+(sal(j)?'<li>'+sal(j)+'</li>':'')+'</ul></a>'}
-var ph=function(t,h){return '<div class="ph" role="img" aria-label="'+T.ph+'" style="'+(h||'')+'"><span>'+(t||T.phS)+'</span></div>'};
+var ph=function(t,h,src){return '<div class="ph'+(h?' '+h:'')+'" role="img" aria-label="'+T.ph+'">'+(src?'<img src="assets/'+src+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<span>'+(t||T.phS)+'</span></div>'};
 var list=function(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'};
 
 /* ---------- views ---------- */
 function home(){
  var f=vis().filter(function(j){return j.featured}).slice(0,3);
- return '<section class="hero"><div class="wrap hg"><div><p class="eyebrow">Rikkei Japan Career</p><h1>'+T.h1+'</h1><p class="lead">'+T.lead+'</p><p><a class="btn" href="#/jobs">'+T.cta+'</a> <a class="btn ghost" href="#/about">'+T.c2+'</a></p></div>'+ph(T.ph,'')+'</div></section>'
+ return '<section class="hero"><div class="wrap hg"><div><p class="eyebrow">Rikkei Japan Career</p><h1>'+T.h1+'</h1><p class="lead">'+T.lead+'</p><p><a class="btn" href="#/jobs">'+T.cta+'</a> <a class="btn ghost" href="#/about">'+T.c2+'</a></p></div>'+ph(T.ph,'hp','hero.jpg')+'</div></section>'
  +'<section class="sec"><div class="wrap"><div class="facts">'+T.facts.map(function(x){return '<div><b>'+x[0]+'</b>'+x[1]+'</div>'}).join('')+'</div><p class="note">'+T.factNote+'</p></div></section>'
  +'<section class="sec alt"><div class="wrap"><div class="row"><h2>'+T.feat+'</h2><a class="btn ghost sm" href="#/jobs">'+T.all+'</a></div><div class="jobs">'+f.map(card).join('')+'</div></div></section>'
  +'<section class="sec"><div class="wrap"><h2>'+T.whyT+'</h2><div class="why">'+T.why.map(function(w){return '<div><h3>'+w[0]+'</h3><p>'+w[1]+'</p></div>'}).join('')+'</div></div></section>'
- +'<section class="sec alt"><div class="wrap"><div class="row"><h2>'+T.cultT+'</h2><a class="btn ghost sm" href="#/culture">'+T.nav[3]+'</a></div><p>'+T.cultP+'</p><div class="three">'+T.cult.slice(0,3).map(function(c){return '<div>'+ph()+'<h3>'+c[0]+'</h3></div>'}).join('')+'</div></div></section>'
+ +'<section class="sec alt"><div class="wrap"><div class="row"><h2>'+T.cultT+'</h2><a class="btn ghost sm" href="#/culture">'+T.nav[3]+'</a></div><p>'+T.cultP+'</p><div class="three">'+T.cult.slice(0,3).map(function(c,i){return '<div>'+ph('','','culture-'+(i+1)+'.jpg')+'<h3>'+c[0]+'</h3></div>'}).join('')+'</div></div></section>'
  +'<section class="sec"><div class="wrap"><div class="row"><h2>'+T.newsT+'</h2><a class="btn ghost sm" href="#/news">'+T.nav[4]+'</a></div>'+newsList()+'</div></section>'
  +'<section class="fin"><h2>'+T.finT+'</h2><p>'+T.finP+'</p><a class="btn" href="#/jobs">'+T.cta+'</a></section>';
 }
@@ -94,24 +94,24 @@ function detail(id){
  var j=find(id);if(!j)return '<div class="wrap sec"><p>'+T.nf+'</p><a class="btn" href="#/jobs">'+T.back+'</a></div>';
  var c=j.content[lang];
  var rel=vis().filter(function(x){return x.id!==j.id}).sort(function(a,b){return (b.category===j.category)-(a.category===j.category)}).slice(0,2);
- var act=j.applicationUrl?'<a class="btn" href="'+j.applicationUrl+'" target="_blank" rel="noopener">'+T.apply+'</a>':'<button type="button" class="btn" data-apply>'+T.apply+'</button><p id="ap" class="note" hidden>'+T.noUrl+'</p>';
+ var u=j.applicationUrl||window.RJ_APPLY_URL,act=u?'<a class="btn" href="'+u+'" target="_blank" rel="noopener">'+T.apply+'</a>':'<button type="button" class="btn" data-apply>'+T.apply+'</button><p id="ap" class="note" hidden>'+T.noUrl+'</p>';
  return '<div class="wrap sec"><a class="crumb" href="#/jobs">← '+T.back+'</a><div class="dg"><article><span class="tag">'+T.cats[j.category]+'</span><h1>'+c.title+'</h1>'
  +'<h2>'+T.sum+'</h2><p>'+c.description+'</p><h2>'+T.resp+'</h2>'+list(c.responsibilities)+'<h2>'+T.req+'</h2>'+list(c.requirements)+'<h2>'+T.pref+'</h2>'+list(c.preferred)+'<h2>'+T.ben+'</h2>'+list(c.benefits)+'</article>'
  +'<aside class="side"><dl><dt>'+T.loc+'</dt><dd>'+loc(j)+'</dd><dt>'+T.cat+'</dt><dd>'+j.department+'</dd><dt>'+T.type+'</dt><dd>'+T.ty[j.employmentType]+'</dd><dt>'+T.exp+'</dt><dd>'+T.ex[j.experienceLevel]+'</dd><dt>'+T.sal+'</dt><dd>'+(sal(j)||T.salTbd)+'</dd>'
- +'<dt>'+T.lang_+'</dt><dd>'+j.requiredLanguages.map(function(r){return T.lg[r.lang]+' ('+r.level+')'}).join(', ')+'</dd><dt>'+T.nat+'</dt><dd>'+j.targetNationalities.map(function(n){return T.natn[n]}).join(' / ')+'</dd><dt>'+T.posted+'</dt><dd>'+j.posted+'</dd></dl>'+act+'</aside></div>'
+ +'<dt>'+T.lang_+'</dt><dd>'+j.requiredLanguages.map(function(r){return T.lg[r.lang]+' ('+r.level+')'}).join(', ')+'</dd><dt>'+T.posted+'</dt><dd>'+j.posted+'</dd></dl>'+act+'</aside></div>'
  +(rel.length?'<h2 style="margin-top:56px">'+T.related+'</h2><div class="jobs">'+rel.map(card).join('')+'</div>':'')+'</div>';
 }
-function about(){return '<div class="wrap sec"><h1>'+T.aboutT+'</h1>'+T.aboutP.map(function(p){return '<p>'+p+'</p>'}).join('')+'<h2>'+T.valT+'</h2>'+list(T.vals)+'<p><a class="btn" href="https://rikkeisoft.com/" target="_blank" rel="noopener">'+T.corp+'</a></p><p><a class="btn ghost" href="#/jobs">'+T.cta+'</a></p></div>'}
-function culture(){return '<div class="wrap sec"><h1>'+T.cultT+'</h1><p>'+T.cultP+'</p><div class="why">'+T.cult.map(function(c){return '<div>'+ph()+'<h3 style="margin-top:12px">'+c[0]+'</h3><p>'+c[1]+'</p></div>'}).join('')+'</div></div>'}
+function about(){return '<div class="wrap sec"><h1>'+T.aboutT+'</h1>'+ph('','hp','about.jpg')+T.aboutP.map(function(p){return '<p>'+p+'</p>'}).join('')+'<h2>'+T.valT+'</h2>'+list(T.vals)+'<p><a class="btn" href="https://rikkeisoft.com/ja/" target="_blank" rel="noopener">'+T.corp+'</a></p><p><a class="btn ghost" href="#/jobs">'+T.cta+'</a></p></div>'}
+function culture(){return '<div class="wrap sec"><h1>'+T.cultT+'</h1><p>'+T.cultP+'</p><div class="why">'+T.cult.map(function(c,i){return '<div>'+ph('','','culture-'+(i+1)+'.jpg')+'<h3 style="margin-top:12px">'+c[0]+'</h3><p>'+c[1]+'</p></div>'}).join('')+'</div></div>'}
 function news(){return '<div class="wrap sec"><h1>'+T.newsT+'</h1>'+newsList()+'</div>'}
 
 /* ---------- shell ---------- */
 function shell(route){
  var h=['/','/jobs','/about','/culture','/news'];
- $('#hd').innerHTML='<div class="sample">'+T.sample+'</div><div class="wrap bar"><a class="brand" href="#/"><i></i>RIKKEI <small>Japan Career</small></a>'
+ $('#hd').innerHTML='<div class="sample">'+T.sample+'</div><div class="wrap bar"><a class="brand" href="#/" aria-label="Rikkei Japan Career"><img class="logo" src="assets/logo.png" alt="Rikkei" onerror="rjLogo(this)"><small>Japan Career</small></a>'
  +'<button class="mb" type="button" data-menu aria-expanded="false">'+T.menu+'</button><nav aria-label="Main">'+T.nav.map(function(n,i){return '<a href="#'+h[i]+'"'+(route===h[i]?' aria-current="page"':'')+'>'+n+'</a>'}).join('')+'</nav>'
  +'<div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ja" aria-pressed="'+(lang==='ja')+'">日本語</button><button type="button" data-lang="vi" aria-pressed="'+(lang==='vi')+'">Tiếng Việt</button></div><a class="btn sm" href="#/jobs">'+T.cta+'</a></div>';
- $('#ft').innerHTML='<div class="wrap fg"><div><b>Rikkei Japan Career</b><p>'+T.foot+'</p><a href="https://rikkeisoft.com/" target="_blank" rel="noopener">rikkeisoft.com</a></div><div>'+T.nav.map(function(n,i){return '<a href="#'+h[i]+'">'+n+'</a>'}).join('')+'</div><div><b>'+T.contact+'</b><p>'+T.contactP+'</p><span>'+T.priv+'</span></div></div><div class="wrap note" style="margin-top:24px">'+T.copy+'</div>';
+ $('#ft').innerHTML='<div class="wrap fg"><div><b>Rikkei Japan Career</b><p>'+T.foot+'</p><a href="https://rikkeisoft.com/ja/" target="_blank" rel="noopener">rikkeisoft.com/ja</a></div><div>'+T.nav.map(function(n,i){return '<a href="#'+h[i]+'">'+n+'</a>'}).join('')+'</div><div><b>'+T.contact+'</b><p>'+T.contactP+'</p><span>'+T.priv+'</span></div></div><div class="wrap note" style="margin-top:24px">'+T.copy+'</div>';
 }
 function render(){
  T=I[lang];document.documentElement.lang=lang;
@@ -132,5 +132,6 @@ document.addEventListener('click',function(e){
 });
 document.addEventListener('input',function(e){var id=e.target.id;if(id&&S.hasOwnProperty(id)&&e.target.closest('#f')){S[id]=e.target.value;paint()}});
 document.addEventListener('change',function(e){var id=e.target.id;if(id&&S.hasOwnProperty(id)&&e.target.closest('#f')){S[id]=e.target.value;paint()}});
+window.rjLogo=function(el){el.outerHTML='<i></i>RIKKEI'};
 render();
 })();

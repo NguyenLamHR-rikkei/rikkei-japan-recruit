@@ -33,3 +33,10 @@ Double-click `index.html`. (Everything works from `file://`, since data is a nor
 - Hash routes (`#/jobs/ID`) are shareable but not indexed individually by search engines.
 - Not included yet: salary filter (no confirmed salary data), pagination (few jobs), news detail pages, photo gallery, English.
 - Hiding jobs by nationality is client-side display logic only; the data in `data.js` is publicly readable. Real restriction must be enforced server-side.
+
+## Images and logo (v2)
+Put files in `assets/` with these exact names; if a file is missing, a gray placeholder is shown instead:
+`logo.png` (official Rikkei logo, ~30px high works best), `hero.jpg`, `about.jpg`, `culture-1.jpg` … `culture-4.jpg`.
+Photos zoom slightly on hover (disabled for users who prefer reduced motion).
+Apply buttons open `RJ_APPLY_URL` in `data.js` (Facebook recruitment page); set `applicationUrl` on a job to override.
+The "About" links point to https://rikkeisoft.com/ja/. Nationality is used only for filtering and is no longer shown on job pages.
